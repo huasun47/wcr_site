@@ -1,16 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from "react-dom/client";
+import { Provider as ReduxProvider } from "react-redux";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import App from "./App";
+import store from "./store";
+
+import reportWebVitals from "./reportWebVitals";
+
+import "./index.css";
+
+const root = createRoot(document.getElementById("root") as HTMLElement);
+
+// https://reactjsexample.com/ react 案例网站搜索 cra-template 会有 create-react-app 的各种模版
+// https://awesome-web-react.js.org/ 入门方向网站
+// https://dev.to/surajondev/awesome-github-repositories-for-react-4cnn 超棒的react集合
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <ReduxProvider store={store}>
+      <App />
+    </ReduxProvider>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
